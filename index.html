@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cronómetro</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-temporizador">
+        <div id="temporizador">00:00:00</div>
+
+        <div class="botones">
+          <button id="btnIniciarDetener">
+            <i class="fa-solid fa-play" id="reproducir"></i>
+          </button>
+
+          <button id="btnReiniciar">
+            <i class="fa-solid fa-arrow-rotate-left" id="reset"></i>
+          </button>
+
+          <button id="btnGuardar">
+            <i class="fa-solid fa-floppy-disk" id="guardar"></i>
+          </button>
+        </div>
+
+        <div class="resultados">
+          <h3>Resultados Guardados</h3>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/bd73cdd0f7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
