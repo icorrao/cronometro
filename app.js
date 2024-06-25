@@ -77,31 +77,35 @@ btnReiniciar.addEventListener("click", () => {
   ).innerHTML = `<i class="fa-solid fa-play" id="reproducir"></i>`;
   resultadosContador = 0;
   resultados.style.display = "none";
+  resultados.innerHTML = "<h3>Resultados Guardados</h3>";
 });
 
 btnGuardar.addEventListener("click", () => {
-    let resultados = document.querySelector(".resultados");
-    let temporizador = document.getElementById("temporizador");
-  
-    if (temporizador.innerText === "00:00:00") {
-      return;
-    }
-  
-    let nuevoResultado = document.createElement("p");
-    let ultimoResultado = resultados.lastElementChild;
-  
-    let ultimoTiempo = ultimoResultado ? ultimoResultado.innerText.split(" - ")[1] : "";
-  
-    let tiempoActual = temporizador.innerText;
-  
-    if (ultimoTiempo === tiempoActual) {
-      return;
-    }
-  
-    resultados.style.display = "block";
-    resultadosContador++;
-    nuevoResultado.innerText = `${resultadosContador} - ${tiempoActual}`;
-    resultados.appendChild(nuevoResultado);
-  
-  });
-  
+  let resultados = document.querySelector(".resultados"); // selecciona el div resultados
+  let temporizador = document.getElementById("temporizador");
+
+  if (temporizador.innerText === "00:00:00") {
+    return;
+  }
+
+  let nuevoResultado = document.createElement("p"); //crea un "p"
+  let ultimoResultado = resultados.lastElementChild; // crea una variable con el ultimo elemento de resultados
+
+  let ultimoTiempo;
+  if (ultimoResultado) {
+    ultimoTiempo = ultimoResultado.innerText.split(" - ")[1]; //si existe ultimoResultado, se divide en un array y se selecciona la parte que separa el " - ", por ejemplo si ultimoResultado es 1 - 00:00:01 se guarda el "00:00:01"
+  } else {
+    ultimoTiempo = ""; // si no existe, el valor queda como un string vacio
+  } 
+
+  let tiempoActual = temporizador.innerText;
+
+  if (ultimoTiempo === tiempoActual) {
+    return;
+  }
+
+  resultados.style.display = "block";
+  resultadosContador++;
+  nuevoResultado.innerText = `${resultadosContador} - ${tiempoActual}`;
+  resultados.appendChild(nuevoResultado);
+});
